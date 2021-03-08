@@ -5,6 +5,16 @@
     .social-block__list {
       opacity: 1;
       pointer-events: auto;
+
+      .social-block__list-item {
+        transition:
+          opacity $social-blocks-list-item-anim-duration ease-out,
+          transform $social-blocks-list-item-anim-duration ease-out;
+        transform: translateY(0);
+        opacity: 1;
+
+        @include show-icons-delay(2); // count elements for animation delay
+      }
     }
   }
 }
@@ -27,14 +37,18 @@
   }
 
   &::before {
-    @include center;
     content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: transform $social-blocks-toggler-before-anim-duration linear;
+    transform-origin: center center;
   }
 
   svg {
@@ -49,8 +63,7 @@
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: scale(1.125);
     }
   }
 
@@ -75,6 +88,7 @@
     &::before {
       width: 100%;
       height: 100%;
+      transform: scale(1);
       background-color: $c-purple;
       border-color: $c-purple;
     }
@@ -142,9 +156,11 @@
     pointer-events: auto;
   }
 
-  li {
+  .social-block__list-item {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(15px);
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -168,6 +184,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color $social-block-link-anim-duration ease-in-out;
 
   @media (min-width: $stop-scaling) {
     width: 40px;

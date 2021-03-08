@@ -19,3 +19,31 @@ $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
+
+/* Animation duration variables */
+
+/* region social blocks */
+$social-blocks-list-item-anim-duration: .3s;
+$social-blocks-list-item-anim-delay: .1s;
+$social-blocks-toggler-before-anim-duration: .1s;
+$social-block-link-anim-duration: .4s;
+/* endregion social blocks */
+
+/* region header links */
+$header-links-anim-duration: .2s;
+/* endregion header links */
+
+/* region intro */
+$intro-message-anim-duration: .5s;
+$intro-message-anim-delay: 1s;
+/* endregion intro */
+
+/* region history slide */
+$history-slide-active-text-anim-duration: .5s;
+$history-slide-next-text-anim-delay: .3s;
+/* endregion history slide */
+
+/* region form */
+$form-anim-duration: .25s;
+$form-field-anim-duration: .6s;
+/* endregion form */

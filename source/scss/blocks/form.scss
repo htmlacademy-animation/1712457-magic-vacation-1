@@ -1,7 +1,21 @@
+.screen {
+  &.active {
+    & .form {
+      animation: anim-form-width $form-anim-duration ease-out forwards;
+    }
+
+    & .form__field {
+      animation: anim-form-show $form-field-anim-duration ease-out forwards;
+    }
+  }
+}
+
 .form {
   position: relative;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  width: 22rem;
 }
 
 .form__label {
@@ -30,6 +44,8 @@
 }
 
 .form__field {
+  --form-input-placeholder-opacity: 0;
+
   flex: none;
   margin-right: 3rem;
   padding: 0 5.6rem;
@@ -43,6 +59,12 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  opacity: 0;
+
+  &::placeholder {
+    opacity: var(--form-input-placeholder-opacity);
+    color: rgba($c-purple, .6);
+  }
 
   &:focus {
     border: 1px solid $c-purple;
@@ -146,3 +168,33 @@
     }
   }
 }
+
+@keyframes anim-form-show {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    --form-input-placeholder-opacity: 1;
+  }
+
+  100% {
+    --form-input-placeholder-opacity: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes anim-form-width {
+  0% {
+    width: 22rem;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
