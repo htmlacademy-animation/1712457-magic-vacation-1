@@ -1,7 +1,8 @@
 .screen {
   &.active {
     & .intro__message {
-      animation: anim-intro-message $intro-message-anim-duration ease-out forwards $intro-message-anim-delay;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
@@ -103,6 +104,9 @@
   line-height: 1.27;
   opacity: 0;
   transform: translateY(40px);
+  transition:
+    transform $intro-message-anim-duration ease-out,
+    opacity $intro-message-anim-duration ease-out;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -170,17 +174,5 @@
   @media (min-width: $stop-scaling) {
     margin: 0 0 0 -5px;
     font-size: 48px;
-  }
-}
-
-@keyframes anim-intro-message {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
