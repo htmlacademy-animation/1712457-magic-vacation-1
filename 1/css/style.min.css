@@ -1309,7 +1309,7 @@ img {
   display: flex;
   align-items: center;
   margin-left: auto;
-  width: 22rem; }
+  width: 35rem; }
 
 .form__label {
   position: absolute;
@@ -1449,7 +1449,7 @@ img {
 
 @keyframes anim-form-width {
   0% {
-    width: 22rem; }
+    width: 35rem; }
   100% {
     width: 100%; } }
 
@@ -1556,7 +1556,8 @@ img {
   display: block; }
 
 .screen.active .intro__message {
-  animation: anim-intro-message 0.5s ease-out forwards 1s; }
+  opacity: 1;
+  transform: translateY(0); }
 
 .intro {
   display: flex;
@@ -1637,7 +1638,8 @@ img {
   font-size: 2.4rem;
   line-height: 1.27;
   opacity: 0;
-  transform: translateY(40px); }
+  transform: translateY(40px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; }
   @media (min-width: 2000px) {
     .intro__message {
       width: 509px;
@@ -1692,14 +1694,6 @@ img {
     .intro__date {
       margin: 0 0 0 -5px;
       font-size: 48px; } }
-
-@keyframes anim-intro-message {
-  0% {
-    opacity: 0;
-    transform: translateY(40px); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
 
 .page-header {
   position: fixed;
