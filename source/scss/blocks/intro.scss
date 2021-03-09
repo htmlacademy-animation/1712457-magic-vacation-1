@@ -103,7 +103,7 @@
   font-size: 2.4rem;
   line-height: 1.27;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(15px);
   transition:
     transform $intro-message-anim-duration ease-out,
     opacity $intro-message-anim-duration ease-out;
