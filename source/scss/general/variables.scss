@@ -31,6 +31,8 @@ $social-block-link-anim-duration: .4s;
 
 /* region header links */
 $header-links-anim-duration: .2s;
+
+$header-links-anim-loaded-delay: .1s;
 /* endregion header links */
 
 /* region intro */
@@ -47,3 +49,9 @@ $history-slide-next-text-anim-delay: .3s;
 $form-anim-duration: .25s;
 $form-field-anim-duration: .6s;
 /* endregion form */
+
+$page-loaded-default-duration: .5s;
+
+/* region transition timing function */
+$first-loaded-anim-timing-function: cubic-bezier(.18,.58,.23,.94);
+/* endregion */
