@@ -105,8 +105,8 @@
   opacity: 0;
   transform: translateY(15px);
   transition:
-    transform $intro-message-anim-duration ease-out,
-    opacity $intro-message-anim-duration ease-out;
+    transform $intro-message-anim-duration ease-out $intro-message-anim-delay,
+    opacity $intro-message-anim-duration ease-out $intro-message-anim-delay;
 
   @media (min-width: $stop-scaling) {
     width: 509px;

@@ -1,3 +1,15 @@
+.loaded {
+  .social-block__toggler {
+    &:before {
+      opacity: 1;
+      transform: scale(1);
+      transition:
+        transform $page-loaded-default-duration $first-loaded-anim-timing-function,
+        opacity $page-loaded-default-duration $first-loaded-anim-timing-function;
+    }
+  }
+}
+
 .social-block {
   position: relative;
 
@@ -47,6 +59,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    opacity: 0;
+    transform: scale(0);
     transition: transform $social-blocks-toggler-before-anim-duration linear;
     transform-origin: center center;
   }

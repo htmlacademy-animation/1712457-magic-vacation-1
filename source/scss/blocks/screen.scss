@@ -1,3 +1,9 @@
+.loaded {
+  .screen__footer {
+    transform: translateY(0);
+  }
+}
+
 .screen {
   position: relative;
   display: flex;
@@ -45,6 +51,8 @@
   right: 0;
   color: $c-dark;
   background-color: $c-light;
+  transform: translateY(100%);
+  transition: transform $page-loaded-default-duration $first-loaded-anim-timing-function;
   z-index: 1;
 
   @media (max-width: $tablet) and (orientation: portrait) {
