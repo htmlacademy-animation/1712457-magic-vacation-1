@@ -4,9 +4,11 @@ export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
     this.SCREEN_ACTIVE_DELAY_TIMEOUT = 100;
+    this.SCREEN_ANIM_BG_ACTIVE_CLASS = 'screen__anim-bg--active';
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.screenAnimBg = document.querySelector('.js-screen__anim-bg');
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -41,14 +43,23 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+    const activeScreen = this.screenElements[this.activeScreen];
+    let prevActiveScreen =  this.screenElements[0];
+
     this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
+      if (screen.classList.contains('active')) {
+        prevActiveScreen = screen;
+      }
     });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, this.SCREEN_ACTIVE_DELAY_TIMEOUT);
+
+    if (prevActiveScreen.classList.contains('screen--story') && activeScreen.classList.contains('screen--prizes')) {
+      this.screenAnimBg.classList.add(this.SCREEN_ANIM_BG_ACTIVE_CLASS);
+      this.screenAnimBg.addEventListener('transitionend', this.handleTransitionEndScreenBg.bind(this));
+      this.screenAnimBg.addEventListener('webkitTransitionend', this.handleTransitionEndScreenBg.bind(this));
+    } else {
+      this.hideScreenElements();
+      this.showActiveElement();
+    }
   }
 
   changeActiveMenuItem() {
@@ -77,5 +88,27 @@ export default class FullPageScroll {
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
     }
+  }
+
+  hideScreenElements() {
+    this.screenElements.forEach((screen) => {
+      screen.classList.add(`screen--hidden`);
+      screen.classList.remove(`active`);
+    });
+  }
+
+  showActiveElement() {
+    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    setTimeout(() => {
+      this.screenElements[this.activeScreen].classList.add(`active`);
+    }, this.SCREEN_ACTIVE_DELAY_TIMEOUT);
+  }
+
+  handleTransitionEndScreenBg() {
+    this.hideScreenElements();
+    this.screenAnimBg.classList.remove(this.SCREEN_ANIM_BG_ACTIVE_CLASS);
+    this.showActiveElement();
+    this.screenAnimBg.removeEventListener('transitionend', this.handleTransitionEndScreenBg);
+    this.screenAnimBg.removeEventListener('webkitTransitionend',this.handleTransitionEndScreenBg);
   }
 }
