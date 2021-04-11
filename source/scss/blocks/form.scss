@@ -44,8 +44,6 @@
 }
 
 .form__field {
-  --form-input-placeholder-opacity: 0;
-
   flex: none;
   margin-right: 3rem;
   padding: 0 5.6rem;
@@ -62,7 +60,6 @@
   opacity: 0;
 
   &::placeholder {
-    opacity: var(--form-input-placeholder-opacity);
     color: rgba($c-purple, .6);
   }
 
@@ -174,16 +171,8 @@
     opacity: 0;
   }
 
-  25% {
-    opacity: 1;
-  }
-
-  70% {
-    --form-input-placeholder-opacity: 1;
-  }
-
+  25%,
   100% {
-    --form-input-placeholder-opacity: 1;
     opacity: 1;
   }
 }

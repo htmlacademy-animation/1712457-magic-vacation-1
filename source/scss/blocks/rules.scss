@@ -123,6 +123,7 @@
   padding-top: 0.6rem;
   padding-left: 6.5rem;
   break-inside: avoid;
+  @include show-rules-item(3, rules__text);
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 62px;
@@ -144,19 +145,15 @@
     font-size: 1.2rem;
   }
 
-  &::before {
-    content: counter(li);
-    counter-increment: li;
+  &:after,
+  &:before {
     position: absolute;
     top: 0;
     left: 0;
     width: 4.5rem;
     height: 4.5rem;
-    font-family: $font-alt;
     font-weight: 400;
     font-size: 2.4rem;
-    background-color: $c-purple;
-    border-radius: 50%;
     line-height: 5rem;
     text-align: center;
 
@@ -177,8 +174,23 @@
     }
   }
 
-  p {
+  &:after {
+    content: counter(li);
+    counter-increment: li;
+    font-family: $font-alt;
+    animation: anim_rules_number $rules-item-anim-duration ease-out backwards;
+  }
+
+  &:before {
+    content: "";
+    background-color: $c-purple;
+    border-radius: 50%;
+    animation: anim_rules_decor $rules-item-anim-duration cubic-bezier(0, 1, 1, 1.3) backwards;
+  }
+
+  .rules__text {
     margin: 0;
+    animation: anim_rules_text $rules-item-anim-duration ease-out backwards;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
@@ -190,6 +202,14 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+
+  &:before {
+    left: auto;
+    right: 0;
+    opacity: 0;
+    transform: translate(0, -50%);
+    width: 5.6rem;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -209,5 +229,67 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+.rules__link-inner {
+  opacity: 0;
+}
+
+.rules__link_show {
+  .rules__link-inner {
+    opacity: 1;
+    transition: opacity .3s;
+  }
+
+  &:before {
+    animation: anim_show_link_begin $rules-btn-anim-duration forwards;
+  }
+}
+
+@keyframes anim_rules_decor {
+  0% {
+    transform: scale3d(0, 0, 1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes anim_rules_number {
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes anim_rules_text {
+  0% {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+
+ 70% {
+   opacity: .4;
+ }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes anim_show_link_begin {
+  to {
+    opacity: 1;
+    width: 100%;
   }
 }
