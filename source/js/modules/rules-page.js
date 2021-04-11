@@ -15,6 +15,10 @@ export default () => {
     const lastItem = rulesItems[rulesItems.length - 1];
     lastItem.addEventListener('animationend', showBtnRules);
 
-    document.body.addEventListener('screenChanged', hideBtnRules);
+    document.body.addEventListener('screenChanged', (e) => {
+      if (e.detail.screenName !== 'rules') {
+        hideBtnRules();
+      }
+    });
   }
 };
