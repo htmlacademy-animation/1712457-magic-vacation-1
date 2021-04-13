@@ -66,3 +66,15 @@
     }
   }
 }
+
+@mixin show-rules-item($count, $className) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i + 1}) {
+      .#{$className},
+      &:before,
+      &:after {
+        animation-delay: $i * $rules-item-anim-delay;
+      }
+    }
+  }
+}

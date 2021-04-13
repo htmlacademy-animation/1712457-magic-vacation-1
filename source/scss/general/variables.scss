@@ -54,6 +54,12 @@ $screen-bg-anim-duration: .3s;
 
 $page-loaded-default-duration: .5s;
 
-/* region transition timing function */
+/* region transition timing loaded function */
 $first-loaded-anim-timing-function: cubic-bezier(.18,.58,.23,.94);
-/* endregion */
+/* endregion transition timing loaded function */
+
+/* region rules */
+$rules-item-anim-duration: .3s;
+$rules-btn-anim-duration: .4s;
+$rules-item-anim-delay: .15s;
+/* endregion rules */
