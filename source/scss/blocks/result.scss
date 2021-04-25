@@ -61,6 +61,11 @@
     transition:
       transform $result-screen-img-anim-timing-function $result-screen-img-anim-duration,
       opacity ease-out $result-screen-img-anim-duration;
+
+    & .result__screen-img-item--suitcase {
+      transform: scale(1);
+      transition: transform ease-out $result-screen-img-anim-duration;
+    }
   }
 }
 
@@ -124,6 +129,7 @@
     left: 31%;
     min-width: 300px;
     width: 42%;
+    transform: scale(0);
   }
 
   @media (orientation: portrait) {

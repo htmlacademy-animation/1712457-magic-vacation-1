@@ -6,8 +6,9 @@ export default class AnimationText {
   ) {
     this.elementSelector = elementSelector;
     this.timer = timer;
-    this.element = document.querySelector(this.elementSelector);
+    this.elements = document.querySelectorAll(this.elementSelector);
     this.timeOffset = initDelay || 0;
+    this.timeOffsetCurrent = 0;
 
     this.prePareText();
   }
@@ -29,35 +30,38 @@ export default class AnimationText {
   createElement(letter, index) {
     const span = document.createElement('span');
     span.textContent = letter;
-    span.style.transition = `transform ${this.timer}ms ease ${this.timeOffset}ms`;
-    this.timeOffset = this.generatorDelay(this.timeOffset, index);
+    span.style.transition = `transform ${this.timer}ms ease-out ${this.timeOffsetCurrent}ms`;
+    this.timeOffsetCurrent = this.generatorDelay(this.timeOffsetCurrent, index);
     return span;
   }
 
   prePareText() {
-    if (!this.element) {
+    if (!this.elements.length) {
       return;
     }
 
-    const text = this.element.textContent.trim().split(` `);
+    this.elements.forEach((element) => {
+      const text = element.textContent.trim().split(` `);
+      this.timeOffsetCurrent = this.timeOffset;
 
-    const content = text.reduce((fragmentParent, word, index) => {
-      const wordElement = Array.from(word).reduce((fragment, latter, i) => {
-        fragment.appendChild(this.createElement(latter, i));
-        return fragment;
+      const content = text.reduce((fragmentParent, word, index) => {
+        const wordElement = Array.from(word).reduce((fragment, latter, i) => {
+          fragment.appendChild(this.createElement(latter, i));
+          return fragment;
+        }, document.createDocumentFragment());
+        const wordContainer = document.createElement('span');
+        wordContainer.classList.add('per-letter-anim__word');
+        wordContainer.appendChild(wordElement);
+        fragmentParent.appendChild(wordContainer);
+        if (index !== text.length - 1) {
+          const space = document.createTextNode(' ');
+          fragmentParent.appendChild(space)
+        }
+        return fragmentParent;
       }, document.createDocumentFragment());
-      const wordContainer = document.createElement('span');
-      wordContainer.classList.add('per-letter-anim__word');
-      wordContainer.appendChild(wordElement);
-      fragmentParent.appendChild(wordContainer);
-      if (index !== text.length - 1) {
-        const space = document.createTextNode(' ');
-        fragmentParent.appendChild(space)
-      }
-      return fragmentParent;
-    }, document.createDocumentFragment());
 
-    this.element.innerHTML = '';
-    this.element.appendChild(content);
+      element.innerHTML = '';
+      element.appendChild(content);
+    });
   }
 }

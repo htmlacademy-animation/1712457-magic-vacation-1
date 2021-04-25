@@ -27,9 +27,5 @@ rulesPage();
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
 
-const animationIntroTitle = new AnimationText(`.intro__title`, 500);
-const animationIntroDate = new AnimationText(`.intro__date`, 500, 600);
-const animationHistory = new AnimationText(`.slider__item-title`, 500);
-const animationPrize = new AnimationText(`.prizes__title`, 500);
-const animationRules = new AnimationText(`.rules__title`, 500);
-const animationGame = new AnimationText(`.game__title`, 500);
+const animationTitle = new AnimationText('.js-animation-text', 400);
+const animationIntroDate = new AnimationText('.intro__date', 400, 550);
