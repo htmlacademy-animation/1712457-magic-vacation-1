@@ -1466,11 +1466,11 @@ img {
   animation-fill-mode: forwards;
 }
 .screen.screen--show_animation .form, .screen.screen--show_animation .form__field {
-  animation-delay: 3s;
+  animation-delay: 1s;
 }
 .screen.screen--show_animation .form__button {
   opacity: 1;
-  transition: opacity ease-out 0.25s 3s;
+  transition: opacity ease-out 0.25s 1s;
 }
 
 .form {
