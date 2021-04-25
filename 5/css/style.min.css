@@ -1454,10 +1454,23 @@ img {
 }
 
 .screen.screen--show_animation .form, .screen.active .form {
-  animation: anim-form-width 0.25s ease-out forwards;
+  animation-name: anim-form-width;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 .screen.screen--show_animation .form__field, .screen.active .form__field {
-  animation: anim-form-show 0.6s ease-out forwards;
+  animation-name: anim-form-show;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+.screen.screen--show_animation .form, .screen.screen--show_animation .form__field {
+  animation-delay: 3s;
+}
+.screen.screen--show_animation .form__button {
+  opacity: 1;
+  transition: opacity ease-out 0.25s 3s;
 }
 
 .form {
@@ -2990,6 +3003,9 @@ img {
 
 .result__form {
   margin-top: auto;
+}
+.result__form .form__button {
+  opacity: 0;
 }
 
 .result--trip .result__title,
