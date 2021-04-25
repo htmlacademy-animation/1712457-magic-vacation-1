@@ -63,3 +63,9 @@ $rules-item-anim-duration: .3s;
 $rules-btn-anim-duration: .4s;
 $rules-item-anim-delay: .15s;
 /* endregion rules */
+
+/* region result */
+$result-screen-img-anim-timing-function: cubic-bezier(0.69, 1.5, 0.83, 1.18);
+$result-screen-img-anim-duration: 0.5s;
+$result-screen-img-other-anim-delay: 0.4s;
+/* endregion result */

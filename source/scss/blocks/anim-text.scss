@@ -1,0 +1,25 @@
+/*
+* Style for animation text
+*/
+
+.per-letter-anim__word {
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+
+  & > span {
+    padding-top: 2rem;
+    transform: translate3d(0, 100%, 0);
+    display: inline-block;
+  }
+}
+
+.screen.active .swiper-slide.swiper-slide-active,
+.screen.screen--intro.active,
+.screen.screen--prizes.active,
+.screen.screen--rules.active,
+.screen.screen--game.active {
+  & .per-letter-anim__word > span {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -7,6 +7,7 @@ export default () => {
         let target = showResultEls[i].getAttribute(`data-target`);
         [].slice.call(results).forEach(function (el) {
           el.classList.remove(`screen--show`);
+          el.classList.remove(`screen--show_animation`);
           el.classList.add(`screen--hidden`);
         });
         let targetEl = [].slice.call(results).filter(function (el) {
@@ -14,6 +15,10 @@ export default () => {
         });
         targetEl[0].classList.add(`screen--show`);
         targetEl[0].classList.remove(`screen--hidden`);
+
+        setTimeout(() => {
+          targetEl[0].classList.add(`screen--show_animation`);
+        }, 100);
       });
     }
 
