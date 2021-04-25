@@ -2,11 +2,29 @@
   &.screen--show_animation,
   &.active {
     & .form {
-      animation: anim-form-width $form-anim-duration ease-out forwards;
+      animation-name: anim-form-width;
+      animation-duration: $form-anim-duration;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
     }
 
     & .form__field {
-      animation: anim-form-show $form-field-anim-duration ease-out forwards;
+      animation-name: anim-form-show;
+      animation-duration: $form-field-anim-duration;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.screen--show_animation {
+    & .form,
+    & .form__field {
+      animation-delay: $result-screen-anim-form-delay;
+    }
+
+    & .form__button {
+      opacity: 1;
+      transition: opacity ease-out $form-anim-duration $result-screen-anim-form-delay;
     }
   }
 }

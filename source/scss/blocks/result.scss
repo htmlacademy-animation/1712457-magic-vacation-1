@@ -101,7 +101,7 @@
     width: 35%;
     transform-origin: 0 50%;
     opacity: 0;
-    animation: anim-screen-img-item-decor-right 3s $result-screen-img-other-anim-delay ease-in-out forwards;
+    animation: anim-screen-img-item-decor-right $result-screen-img-anim-other-duration $result-screen-img-other-anim-delay ease-in-out forwards;
   }
 
   & .result__screen-img-item--leaf-blue-2 {
@@ -109,7 +109,7 @@
     left: 9%;
     min-width: 250px;
     opacity: 0;
-    animation: anim-screen-img-item-decor-left 3s $result-screen-img-other-anim-delay ease-in-out forwards;
+    animation: anim-screen-img-item-decor-left $result-screen-img-anim-other-duration $result-screen-img-other-anim-delay ease-in-out forwards;
     transform-origin: 100% 50%;
     width: 35%;
   }
@@ -118,7 +118,7 @@
     left: 56%;
     bottom: 7%;
     opacity: 0;
-    animation: anim-screen-img-item-decor-right 2.8s $result-screen-img-other-anim-delay ease-in-out forwards;
+    animation: anim-screen-img-item-decor-right $result-screen-img-anim-green-duration $result-screen-img-other-anim-delay ease-in-out forwards;
     transform-origin: 0 50%;
     min-width: 300px;
     width: 41%;
@@ -294,6 +294,10 @@
 
 .result__form {
   margin-top: auto;
+
+  & .form__button {
+    opacity: 0;
+  }
 }
 
 .result--trip,

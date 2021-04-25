@@ -66,6 +66,10 @@ $rules-item-anim-delay: .15s;
 
 /* region result */
 $result-screen-img-anim-timing-function: cubic-bezier(0.69, 1.5, 0.83, 1.18);
-$result-screen-img-anim-duration: 0.5s;
-$result-screen-img-other-anim-delay: 0.4s;
+$result-screen-img-anim-duration: .5s;
+$result-screen-img-other-anim-delay: .4s;
+
+$result-screen-img-anim-other-duration: 3s;
+$result-screen-img-anim-green-duration: $result-screen-img-anim-other-duration - 0.2s;
+$result-screen-anim-form-delay: $result-screen-img-anim-other-duration;
 /* endregion result */
