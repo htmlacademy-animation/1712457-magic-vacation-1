@@ -1,34 +1,36 @@
 export default class AnimationText {
   constructor(
-    elementSelector,
-    timer,
-    initDelay,
+      elementSelector,
+      timer,
+      initDelay,
   ) {
     this.elementSelector = elementSelector;
     this.timer = timer;
     this.elements = document.querySelectorAll(this.elementSelector);
     this.timeOffset = initDelay || 0;
     this.timeOffsetCurrent = 0;
+  }
 
+  init() {
     this.prePareText();
   }
 
   generatorDelay(offset, index) {
     let result = offset;
-    if ((index+1) % 3 === 1) {
-      result +=90;
+    if ((index + 1) % 3 === 1) {
+      result += 90;
     }
-    if ((index+1) % 3 === 2) {
+    if ((index + 1) % 3 === 2) {
       result -= 45;
     }
-    if ((index+1) % 3 === 0) {
+    if ((index + 1) % 3 === 0) {
       result += 60;
     }
     return result;
   }
 
   createElement(letter, index) {
-    const span = document.createElement('span');
+    const span = document.createElement(`span`);
     span.textContent = letter;
     span.style.transition = `transform ${this.timer}ms ease-out ${this.timeOffsetCurrent}ms`;
     this.timeOffsetCurrent = this.generatorDelay(this.timeOffsetCurrent, index);
@@ -49,18 +51,18 @@ export default class AnimationText {
           fragment.appendChild(this.createElement(latter, i));
           return fragment;
         }, document.createDocumentFragment());
-        const wordContainer = document.createElement('span');
-        wordContainer.classList.add('per-letter-anim__word');
+        const wordContainer = document.createElement(`span`);
+        wordContainer.classList.add(`per-letter-anim__word`);
         wordContainer.appendChild(wordElement);
         fragmentParent.appendChild(wordContainer);
         if (index !== text.length - 1) {
-          const space = document.createTextNode(' ');
-          fragmentParent.appendChild(space)
+          const space = document.createTextNode(` `);
+          fragmentParent.appendChild(space);
         }
         return fragmentParent;
       }, document.createDocumentFragment());
 
-      element.innerHTML = '';
+      element.innerHTML = ``;
       element.appendChild(content);
     });
   }
