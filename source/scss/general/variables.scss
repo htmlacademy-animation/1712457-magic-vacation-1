@@ -43,6 +43,9 @@ $intro-message-anim-delay: 1s;
 /* region history slide */
 $history-slide-active-text-anim-duration: .5s;
 $history-slide-next-text-anim-delay: .3s;
+
+$history-slide-pagination-anim-duration: .3s;
+$history-slide-pagination-opacity-duration: .5s;
 /* endregion history slide */
 
 /* region form */
@@ -72,4 +75,7 @@ $result-screen-img-other-anim-delay: .4s;
 $result-screen-img-anim-other-duration: 3s;
 $result-screen-img-anim-green-duration: $result-screen-img-anim-other-duration - 0.2s;
 $result-screen-anim-form-delay: 1s;
+
+$result-button-show-anim-duration: .3s;
+$result-button-show-opacity-duration: .3s;
 /* endregion result */

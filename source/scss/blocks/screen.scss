@@ -54,6 +54,38 @@
   transform: translateY(100%);
   transition: transform $page-loaded-default-duration $first-loaded-anim-timing-function;
   z-index: 1;
+  overflow: hidden;
+
+  @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
+    background-image: linear-gradient(to top, $c-light 0, $c-light 50%, transparent 51%);
+    background-size: 100% 200%;
+    background-position: 0 0;
+    background-color: transparent;
+    transition: background-position 0.3s ease-out;
+
+    &.screen__footer--full-anim {
+      background-position: 0 100%;
+
+      & .screen__footer-wrapper {
+        transition: opacity 0.3s 0.3s ease-out;
+        opacity: 1;
+      }
+
+      & .screen__footer-collapse {
+        transform: translateY(0);
+      }
+    }
+
+    & .screen__footer-collapse {
+      transition: transform 0.3s ease-out;
+      transform: translateY(200%);
+    }
+
+    & .screen__footer-wrapper {
+      transition: opacity 0s ease-in;
+      opacity: 0;
+    }
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -83,18 +115,10 @@
 
   @media (max-width: $tablet) and (orientation: portrait) {
     opacity: 0;
-
-    .screen__footer--full & {
-      opacity: 1;
-    }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     opacity: 0;
-
-    .screen__footer--full & {
-      opacity: 1;
-    }
   }
 }
 
@@ -106,6 +130,7 @@
   display: none;
   width: 4rem;
   height: 4rem;
+  background-color: $c-light;
   color: $c-dark;
   z-index: 1;
 
