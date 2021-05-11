@@ -1,7 +1,7 @@
 import throttle from 'lodash/throttle';
 
 export default class FullPageScroll {
-  constructor() {
+  constructor(revertTheme, clearTheme) {
     this.THROTTLE_TIMEOUT = 2000;
     this.SCREEN_ACTIVE_DELAY_TIMEOUT = 100;
     this.SCREEN_ANIM_BG_ACTIVE_CLASS = `screen__anim-bg--active`;
@@ -9,6 +9,14 @@ export default class FullPageScroll {
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
     this.screenAnimBg = document.querySelector(`.js-screen__anim-bg`);
+
+    this.revertTheme = () => {
+      revertTheme();
+    };
+
+    this.clearTheme = () => {
+      clearTheme();
+    };
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -51,6 +59,12 @@ export default class FullPageScroll {
         prevActiveScreen = screen;
       }
     });
+
+    if (activeScreen.classList.contains(`screen--story`)) {
+      this.revertTheme();
+    } else {
+      this.clearTheme();
+    }
 
     if (prevActiveScreen.classList.contains(`screen--story`) && activeScreen.classList.contains(`screen--prizes`)) {
       this.screenAnimBg.classList.add(this.SCREEN_ANIM_BG_ACTIVE_CLASS);

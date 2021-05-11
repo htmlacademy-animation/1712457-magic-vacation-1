@@ -273,3 +273,13 @@
     }
   }
 }
+
+.screen--theme-blue-light,
+.screen--theme-blue,
+.screen--theme-dark {
+  .social-block__link {
+    &:hover {
+      color: var(--theme-color);
+    }
+  }
+}

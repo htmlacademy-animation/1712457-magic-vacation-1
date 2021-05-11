@@ -240,6 +240,32 @@
   }
 }
 
+.screen--theme-blue-light,
+.screen--theme-blue,
+.screen--theme-dark {
+  & .slider__control:hover,
+  & .slider__control {
+    color: var(--theme-color);
+  }
+
+  & .slider__control:focus {
+    color: var(--theme-color);
+
+    &::before {
+      border-color: var(--theme-color);
+    }
+  }
+
+  & .slider__control:active {
+    color: $c-light;
+
+    &::before {
+      border-color: var(--theme-color);
+      background-color: var(--theme-color);
+    }
+  }
+}
+
 /* анимация появления пагинации для слайдера */
 .screen--story.active {
   & .slider__pagination.swiper-pagination,
