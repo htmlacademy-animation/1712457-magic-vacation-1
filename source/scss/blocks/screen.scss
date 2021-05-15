@@ -57,28 +57,24 @@
   overflow: hidden;
 
   @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
-    background-image: linear-gradient(to top, $c-light 0, $c-light 50%, transparent 51%);
-    background-size: 100% 200%;
-    background-position: 0 0;
-    background-color: transparent;
-    transition: background-position 0.3s ease-out;
+    background: $c-light;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
 
     &.screen__footer--full-anim {
-      background-position: 0 100%;
-
       & .screen__footer-wrapper {
         transition: opacity 0.3s 0.3s ease-out;
         opacity: 1;
       }
 
       & .screen__footer-collapse {
-        transform: translateY(0);
+        opacity: 1;
+        transition: opacity 0.3s ease-out;
       }
     }
 
     & .screen__footer-collapse {
-      transition: transform 0.3s ease-out;
-      transform: translateY(200%);
+      opacity: 0;
+      transition: opacity 0s ease-out;
     }
 
     & .screen__footer-wrapper {
