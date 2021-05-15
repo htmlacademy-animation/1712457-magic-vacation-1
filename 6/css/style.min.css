@@ -3608,25 +3608,20 @@ img {
 }
 @media (max-width: 1024px) and (orientation: portrait), (max-width: 768px) and (orientation: landscape) {
   .screen__footer {
-    background-image: linear-gradient(to top, #ffffff 0, #ffffff 50%, transparent 51%);
-    background-size: 100% 200%;
-    background-position: 0 0;
-    background-color: transparent;
-    transition: background-position 0.3s ease-out;
-  }
-  .screen__footer.screen__footer--full-anim {
-    background-position: 0 100%;
+    background: #ffffff;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
   }
   .screen__footer.screen__footer--full-anim .screen__footer-wrapper {
     transition: opacity 0.3s 0.3s ease-out;
     opacity: 1;
   }
   .screen__footer.screen__footer--full-anim .screen__footer-collapse {
-    transform: translateY(0);
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
   }
   .screen__footer .screen__footer-collapse {
-    transition: transform 0.3s ease-out;
-    transform: translateY(200%);
+    opacity: 0;
+    transition: opacity 0s ease-out;
   }
   .screen__footer .screen__footer-wrapper {
     transition: opacity 0s ease-in;
