@@ -1,0 +1,15 @@
+body {
+  --theme-color: #ffffff;
+
+  &.screen--theme-dark {
+    --theme-color: #5f458c;
+  }
+
+  &.screen--theme-blue {
+    --theme-color: #3e72ee;
+  }
+
+  &.screen--theme-blue-light {
+    --theme-color: #a0ceff;
+  }
+}

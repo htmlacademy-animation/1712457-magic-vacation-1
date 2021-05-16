@@ -1,7 +1,7 @@
 export default () => {
   const loadPage = () => {
-    document.body.classList.add('loaded');
+    document.body.classList.add(`loaded`);
   };
 
-  window.addEventListener('load', loadPage)
+  window.addEventListener(`load`, loadPage);
 };

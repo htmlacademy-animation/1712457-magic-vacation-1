@@ -310,6 +310,37 @@
   }
 }
 
+.screen--theme-blue-light,
+.screen--theme-blue,
+.screen--theme-dark {
+  & .page-header__menu .page-header__menu-link {
+    &:hover,
+    &:focus {
+      color: var(--theme-color);
+
+      &::after {
+        background-color: var(--theme-color);
+      }
+    }
+  }
+
+  .social-block__toggler:focus,
+  .social-block__toggler:hover,
+  .social-block__toggler {
+    color: var(--theme-color);
+  }
+
+  .social-block__toggler:active {
+    background-color: var(--theme-color);
+  }
+
+  .social-block__toggler:focus {
+    &::before {
+      border-color: var(--theme-color);
+    }
+  }
+}
+
 .page-header__social {
   margin-left: 4.8rem;
 

@@ -67,6 +67,15 @@
       transition: transform ease-out $result-screen-img-anim-duration;
     }
   }
+
+  & .result__button {
+    opacity: 1;
+    transition: opacity $result-button-show-opacity-duration ease-out;
+  }
+
+  & .result__button-circle-arrow {
+    animation: anim-wheel-rotate-right $result-button-show-anim-duration ease-out;
+  }
 }
 
 .result__screen-img {
@@ -198,6 +207,7 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;

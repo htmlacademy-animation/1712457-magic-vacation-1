@@ -22,6 +22,8 @@
     text-transform: uppercase;
     font-size: 1.2rem;
     line-height: 1.2;
+    opacity: 0;
+    transition: opacity .3s ease-in;
 
     @media (min-width: $stop-scaling) {
       font-size: 12px;
@@ -87,6 +89,15 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       padding: 0.9rem 0;
+    }
+  }
+}
+
+.screen.active {
+  & .disclaimer {
+    & ul {
+      opacity: 1;
+      transition: opacity .5s ease-out;
     }
   }
 }

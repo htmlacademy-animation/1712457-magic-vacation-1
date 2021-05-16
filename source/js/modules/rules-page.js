@@ -1,7 +1,7 @@
 export default () => {
-  const rulesItems = document.querySelectorAll('.rules__item');
-  const rulesLink = document.querySelector('.js-rules__link');
-  const RULES_SHOW_CLASS_NAME = 'rules__link_show';
+  const rulesItems = document.querySelectorAll(`.rules__item`);
+  const rulesLink = document.querySelector(`.js-rules__link`);
+  const RULES_SHOW_CLASS_NAME = `rules__link_show`;
 
   const hideBtnRules = () => {
     rulesLink.classList.remove(RULES_SHOW_CLASS_NAME);
@@ -13,10 +13,10 @@ export default () => {
 
   if (rulesItems.length && rulesLink) {
     const lastItem = rulesItems[rulesItems.length - 1];
-    lastItem.addEventListener('animationend', showBtnRules);
+    lastItem.addEventListener(`animationend`, showBtnRules);
 
-    document.body.addEventListener('screenChanged', (e) => {
-      if (e.detail.screenName !== 'rules') {
+    document.body.addEventListener(`screenChanged`, (e) => {
+      if (e.detail.screenName !== `rules`) {
         hideBtnRules();
       }
     });

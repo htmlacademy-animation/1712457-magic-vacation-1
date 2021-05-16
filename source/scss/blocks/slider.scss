@@ -152,6 +152,7 @@
   justify-content: space-between;
   width: 17rem;
   z-index: 1;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
@@ -239,6 +240,49 @@
   }
 }
 
+.screen--theme-blue-light,
+.screen--theme-blue,
+.screen--theme-dark {
+  & .slider__control:hover,
+  & .slider__control {
+    color: var(--theme-color);
+  }
+
+  & .slider__control:focus {
+    color: var(--theme-color);
+
+    &::before {
+      border-color: var(--theme-color);
+    }
+  }
+
+  & .slider__control:active {
+    color: $c-light;
+
+    &::before {
+      border-color: var(--theme-color);
+      background-color: var(--theme-color);
+    }
+  }
+}
+
+/* анимация появления пагинации для слайдера */
+.screen--story.active {
+  & .slider__pagination.swiper-pagination,
+  & .slider__controls {
+    opacity: 1;
+    transition: opacity $history-slide-pagination-opacity-duration ease-out;
+  }
+
+  & .slider__control--prev {
+    animation: anim-wheel-rotate-left $history-slide-pagination-anim-duration ease-out forwards;
+  }
+
+  & .slider__control--next {
+    animation: anim-wheel-rotate-right $history-slide-pagination-anim-duration ease-out forwards;
+  }
+}
+
 .slider__pagination.swiper-pagination {
   position: absolute;
   bottom: 2.8rem;
@@ -251,6 +295,7 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
