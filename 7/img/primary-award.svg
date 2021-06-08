@@ -246,7 +246,7 @@
       keySplines="0.33, 0, 0, 1; 0.33, 0, 0, 1"
       calcMode="spline"
       dur="0.2s"
-      begin="onSecondPart.begin+0.3s"
+      begin="onSecondPart.begin+0.2s"
       fill="freeze"
       repeatCount="1"
     />
@@ -255,7 +255,7 @@
       type="translate"
       values="-165 0; 0 0;"
       dur="0.5s"
-      begin="onSecondPart.begin+0.3s"
+      begin="onSecondPart.begin+0.2s"
       calcMode="linear"
       fill="freeze"
       repeatCount="1"
@@ -296,31 +296,33 @@
     />
     </path>
   </g>
-  <g id="cloudplan" clip-path="url(#window)" opacity="0">
-    <animate
-      attributeName="opacity"
-      values="0;0;1"
-      keyTimes="0;0.9;1"
-      dur="0.2s"
-      begin="airshipBall.end + 0.2s"
-      fill="freeze"
-      repeatCount="1"
-      id="onSecondPart"
-    />
-    <g transform="translate(220 160)">
-      <animateTransform
-        attributeName="transform"
-        type="translate"
-        values="300 160; -80 160;"
-        dur="3s"
-        begin="onSecondPart.begin"
-        repeatCount="indefinite"
+  <g id="clipwindow" clip-path="url(#window)">
+    <g id="cloudplan" opacity="0" transform="scale(0.5) translate(300, 190)">
+      <animate
+        attributeName="opacity"
+        values="0;0;1"
+        keyTimes="0;0.9;1"
+        dur="0.2s"
+        begin="airshipBall.end + 0.2s"
+        fill="freeze"
+        repeatCount="1"
+        id="onSecondPart"
       />
-      <line x1="28.18" y1="38.34" x2="91.09" y2="38.34" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
-      <path d="M41.77,97.54H77.06a12.4,12.4,0,1,1,24.8,0h17.93" transform="translate(-40.77 -69.46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
-      <line x1="218.19" y1="23.72" x2="257.97" y2="23.72" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
-      <path d="M278.75,82.91H251.39a12.4,12.4,0,1,0-24.8,0H208.65" transform="translate(-40.77 -69.46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
-      <line x1="246.24" y1="13.45" x2="268.43" y2="13.45" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <g transform="translate(220 160)">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="300 160; -80 160;"
+          dur="3s"
+          begin="onSecondPart.begin"
+          repeatCount="indefinite"
+        />
+        <line x1="28.18" y1="38.34" x2="91.09" y2="38.34" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path d="M41.77,97.54H77.06a12.4,12.4,0,1,1,24.8,0h17.93" transform="translate(-40.77 -69.46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <line x1="218.19" y1="23.72" x2="257.97" y2="23.72" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path d="M278.75,82.91H251.39a12.4,12.4,0,1,0-24.8,0H208.65" transform="translate(-40.77 -69.46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <line x1="246.24" y1="13.45" x2="268.43" y2="13.45" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
     </g>
   </g>
   <g id="chairplan" opacity="0">
@@ -330,7 +332,7 @@
       keyTimes="0;0.9;1"
       keySplines="0.33, 0, 0.67, 1; 0.33, 0, 0.67, 1"
       dur="0.2s"
-      begin="onSecondPart.begin+0.3"
+      begin="onSecondPart.begin+0.2"
       calcMode="spline"
       fill="freeze"
       repeatCount="1"
@@ -342,7 +344,7 @@
       keyTimes="0; 1"
       keySplines="0.33, 0, 0.67, 1"
       dur="0.5s"
-      begin="onSecondPart.begin+0.3"
+      begin="onSecondPart.begin+0.2"
       calcMode="spline"
       fill="freeze"
       repeatCount="1"
@@ -370,7 +372,7 @@
       values="0;0;1"
       keyTimes="0;0.9;1"
       dur="0.2s"
-      begin="onSecondPart.begin+0.3s"
+      begin="onSecondPart.begin+0.2s"
       fill="freeze"
       repeatCount="1"
       id=""
@@ -380,7 +382,7 @@
       type="translate"
       values="-65 0; 0 0;"
       dur="0.5s"
-      begin="onSecondPart.begin+0.3s"
+      begin="onSecondPart.begin+0.2s"
       calcMode="linear"
       fill="freeze"
       repeatCount="1"
