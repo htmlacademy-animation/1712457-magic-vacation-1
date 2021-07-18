@@ -24,6 +24,9 @@ export default () => {
 
       const firstPrize = document.querySelector(`.prizes__item--journeys`);
       firstPrize.querySelector(`img`).setAttribute(`src`, `img/primary-award.svg`);
+
+      const secondPrize = document.querySelector(`.prizes__item--cases`);
+      secondPrize.querySelector(`img`).setAttribute(`src`, `img/secondary-award.svg`);
     });
   }
 };
