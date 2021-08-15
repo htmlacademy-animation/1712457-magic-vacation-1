@@ -1830,7 +1830,6 @@ img {
   left: 0;
   z-index: 100;
   opacity: 0.5;
-  display: none;
 }
 
 .game__button {
