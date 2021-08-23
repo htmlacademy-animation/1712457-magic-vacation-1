@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import countdownTimer from './timer.js';
 
 export default class FullPageScroll {
   constructor(revertTheme, clearTheme) {
@@ -64,6 +65,10 @@ export default class FullPageScroll {
       this.revertTheme();
     } else {
       this.clearTheme();
+    }
+
+    if (activeScreen.classList.contains(`screen--game`)) {
+      countdownTimer();
     }
 
     if (prevActiveScreen.classList.contains(`screen--story`) && activeScreen.classList.contains(`screen--prizes`)) {
