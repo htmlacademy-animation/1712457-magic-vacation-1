@@ -2,7 +2,7 @@ export default () => {
   const startTimer = Date.now();
   const secondNode = document.querySelector(`.js-game-sec`);
   const minuteNode = document.querySelector(`.js-game-minutes`);
-  const FPS = 30;
+  const FPS = 1;
   let requestId;
 
   function getTimeRemaining(durationSession = 5) {
