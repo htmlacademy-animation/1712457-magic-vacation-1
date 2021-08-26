@@ -2,6 +2,8 @@ export default () => {
   const startTimer = Date.now();
   const secondNode = document.querySelector(`.js-game-sec`);
   const minuteNode = document.querySelector(`.js-game-minutes`);
+  const FPS = 30;
+  let requestId;
 
   function getTimeRemaining(durationSession = 5) {
     const endTime = startTimer + (durationSession * 60 * 1000); // 5 min = 300k мс
@@ -20,12 +22,15 @@ export default () => {
     const timer = getTimeRemaining();
     secondNode.innerHTML = (`0` + timer.seconds).slice(-2);
     minuteNode.innerHTML = (`0` + timer.minutes).slice(-2);
-
-    const requestId = requestAnimationFrame(showTimer);
-
-    if (timer.time <= 1000) {
-      cancelAnimationFrame(requestId);
-    }
+    setTimeout(() => {
+      if (timer.time <= 1000) {
+        cancelAnimationFrame(requestId);
+        secondNode.innerHTML = (`00`);
+        minuteNode.innerHTML = (`00`);
+      } else {
+        requestId = requestAnimationFrame(showTimer);
+      }
+    }, 1000 / FPS);
   }
 
   requestAnimationFrame(showTimer);
