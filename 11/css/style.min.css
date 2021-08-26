@@ -1784,6 +1784,7 @@ img {
 .game__counter {
   margin: 0;
   text-transform: uppercase;
+  width: 7rem;
   font-family: "Radical", "Arial", sans-serif;
   font-weight: 400;
   font-size: 4.8rem;
@@ -1797,11 +1798,13 @@ img {
 }
 @media (min-width: 1024px) {
   .game__counter {
+    width: 11rem;
     margin-right: 5.6rem;
   }
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .game__counter {
+    width: 8rem;
     margin-bottom: 1.8rem;
     font-size: 3.6rem;
   }
@@ -1814,6 +1817,7 @@ img {
 }
 @media (max-width: 768px) and (orientation: landscape) {
   .game__counter {
+    width: 4rem;
     font-size: 2rem;
     margin-bottom: 1rem;
   }
