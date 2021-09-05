@@ -267,6 +267,25 @@
     font-size: 0.8rem;
   }
 
+  .prizes__desc-count {
+    position: relative;
+
+    &::after {
+      content: attr(data-count);
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    & span {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin: 0;
+    }
+  }
+
   b {
     font-family: $font-alt;
     font-weight: 400;
