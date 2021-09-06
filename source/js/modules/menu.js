@@ -1,7 +1,13 @@
+import PrizeCounter from "./prize-counter";
+
 export default () => {
   let header = document.querySelector(`.js-header`);
   let menuToggler = document.querySelector(`.js-menu-toggler`);
   let menuLinks = document.querySelectorAll(`.js-menu-link`);
+  const prizesCountCases = new PrizeCounter('.js-prizes-count-cases', 1, 7);
+  const prizesCountCodes = new PrizeCounter('.js-prizes-count-codes', 11, 900, true);
+  prizesCountCases.start();
+  prizesCountCodes.start();
 
   if (menuToggler) {
     menuToggler.addEventListener(`click`, function () {
@@ -30,6 +36,9 @@ export default () => {
 
       const additionalPrize = document.querySelector(`.prizes__item--codes`);
       additionalPrize.querySelector(`img`).setAttribute(`src`, `img/additional-award.svg`);
+
+      prizesCountCases.restart();
+      prizesCountCodes.restart();
     });
   }
 };
