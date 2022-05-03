@@ -11242,7 +11242,7 @@ class Scene2D {
 
     if (this.isStarted) {
       this.stop();
-      this.initelements();
+      this.initElements();
     }
 
     if (this.animations.length === 0) {
