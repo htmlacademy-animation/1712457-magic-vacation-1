@@ -10,7 +10,8 @@ import FullPageScroll from './modules/full-page-scroll';
 import basePage from './modules/base-page.js';
 import rulesPage from './modules/rules-page.js';
 import AnimationText from './modules/animation-text.js';
-import Slider from "./modules/slider";
+import Slider from "./modules/slider.js";
+import headingAnimation from "./modules/heading-animation.js";
 
 // init modules
 basePage();
@@ -22,6 +23,7 @@ result();
 form();
 social();
 rulesPage();
+headingAnimation();
 
 const slider = new Slider();
 slider.init();
