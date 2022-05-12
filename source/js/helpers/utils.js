@@ -66,7 +66,7 @@ const animMethod = Object.freeze({
   easeInExpo,
   easeOutExpo,
   easeInElastic,
-  easeOutElastic
+  easeOutElastic,
 });
 
 
