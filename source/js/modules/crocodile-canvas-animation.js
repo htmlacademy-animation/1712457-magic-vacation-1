@@ -338,23 +338,13 @@ export default class CrocodileAnimation extends Scene2D {
     this.animations.push(new Animation({
       func: (progress) => {
         setInterval(() => {
-          this.elements.drop.opacity = 1.5 * progress;
-          this.elements.drop.transforms.scaleY = progress;
-        }, 2000);
+          this.elements.drop.opacity = 3 * progress;
+          this.elements.drop.transforms.scaleY = 1.5 * progress;
+          this.elements.drop.transforms.translateY = 3 * progress;
+        }, 2500);
       },
       delay: 500,
-      duration: 2000,
-      easing: animMethod.easeInCubic
-    }));
-
-    this.animations.push(new Animation({
-      func: (progress) => {
-        setInterval(() => {
-          this.elements.drop.transforms.translateY = 5 * progress;
-        }, 1000);
-      },
-      delay: 2500,
-      duration: 1000,
+      duration: 2500,
       easing: animMethod.easeInCubic
     }));
   }
