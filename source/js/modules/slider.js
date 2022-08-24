@@ -1,10 +1,13 @@
 import Swiper from "swiper";
 
+const emitChangeDisplayEvent = (activeIndex) => {
+  const event = new CustomEvent(`slideChange`, {detail: {active: activeIndex}});
+  document.body.dispatchEvent(event);
+};
+
 export default class Slider {
   constructor() {
     this.storySlider = ``;
-    this.sliderContainer = document.getElementById(`story`);
-    this.sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
     this.mainBody = document.querySelector(`body`);
     this.prevSliderTheme = `screen--theme-default`;
@@ -22,15 +25,7 @@ export default class Slider {
         },
         on: {
           slideChange: () => {
-            if (this.storySlider.activeIndex === 0 || this.storySlider.activeIndex === 1) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
-            } else if (this.storySlider.activeIndex === 2 || this.storySlider.activeIndex === 3) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide2.jpg"), linear-gradient(180deg, rgba(45, 54, 179, 0) 0%, #2A34B0 16.85%)`;
-            } else if (this.storySlider.activeIndex === 4 || this.storySlider.activeIndex === 5) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide3.jpg"), linear-gradient(180deg, rgba(92, 138, 198, 0) 0%, #5183C4 16.85%)`;
-            } else if (this.storySlider.activeIndex === 6 || this.storySlider.activeIndex === 7) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide4.jpg"), linear-gradient(180deg, rgba(45, 39, 63, 0) 0%, #2F2A42 16.85%)`;
-            }
+            emitChangeDisplayEvent(this.storySlider.activeIndex);
           },
           resize: () => {
             this.storySlider.update();
@@ -56,19 +51,7 @@ export default class Slider {
         },
         on: {
           slideChange: () => {
-            if (this.storySlider.activeIndex === 0) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
-              this.clearTheme();
-            } else if (this.storySlider.activeIndex === 2) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide2.jpg")`;
-              this.setSliderTheme(`blue-light`);
-            } else if (this.storySlider.activeIndex === 4) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide3.jpg")`;
-              this.setSliderTheme(`blue`);
-            } else if (this.storySlider.activeIndex === 6) {
-              this.sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
-              this.setSliderTheme(`dark`);
-            }
+            emitChangeDisplayEvent(this.storySlider.activeIndex);
           },
           resize: () => {
             this.storySlider.update();

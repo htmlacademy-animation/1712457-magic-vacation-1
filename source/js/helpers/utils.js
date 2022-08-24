@@ -71,3 +71,6 @@ const animMethod = Object.freeze({
 
 
 export default animMethod;
+
+export const WW = window.innerWidth;
+export const WH = window.innerHeight;
