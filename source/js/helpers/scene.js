@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import {WW, WH} from './utils';
+import vertexShader from "../../shader/vertexShader.glsl";
+import fragmentShader from "../../shader/fragmentShader.glsl";
 
 export default class Scene {
   constructor(canvasId) {
@@ -30,7 +32,15 @@ export default class Scene {
     const geometry = new THREE.PlaneGeometry(WW, WH);
     const loadManager = new THREE.LoadingManager();
     const textureLoader = new THREE.TextureLoader(loadManager);
-    const planeMaterials = this.sceneImgs.map((path) => new THREE.MeshBasicMaterial({map: textureLoader.load(path)}));
+    const planeMaterials = this.sceneImgs.map((path) => new THREE.RawShaderMaterial({
+      uniforms: {
+        map: {
+          value: textureLoader.load(path)
+        },
+      },
+      vertexShader,
+      fragmentShader,
+    }));
 
     planeMaterials.forEach((material, index) => {
       const plane = new THREE.Mesh(geometry, material);
