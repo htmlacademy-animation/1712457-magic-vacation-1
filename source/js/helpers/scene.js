@@ -37,6 +37,9 @@ export default class Scene {
         map: {
           value: textureLoader.load(path)
         },
+        delta: {
+          value: 0,
+        },
       },
       vertexShader,
       fragmentShader,
@@ -45,6 +48,11 @@ export default class Scene {
     planeMaterials.forEach((material, index) => {
       const plane = new THREE.Mesh(geometry, material);
       plane.position.x = WW * index;
+
+      if (index === 1) {
+        plane.material.uniforms.delta.value = 25;
+      }
+
       this.scene.add(plane);
     });
   }
